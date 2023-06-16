@@ -41,6 +41,10 @@ Make sure the following requirements are fulfilled:
     [--maxTokens <Max tokens>]
 ```
 
+## Input
+
+For the structure of input, refer to input.json.
+
 ## Result datasets
 
 The example result datasets can be found in the results directory of this repository.
