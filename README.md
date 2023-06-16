@@ -31,7 +31,8 @@ Make sure the following requirements are fulfilled:
 ## Usage
 
 ```bash
-  diamond-kg.py --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] --output <path to the output JSON file>
+  diamond-kg.py --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] 
+  --output <path to the output JSON file> --apiKey <OpenAI API key with gpt-4 model access> --organization <OpenAI API organization>
 ```
 
 ## Contributing
