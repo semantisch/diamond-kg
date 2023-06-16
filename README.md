@@ -28,6 +28,12 @@ You can clone this repository to your machine and install the required packages 
 Make sure the following requirements are fulfilled:
 - [You have an OpenAI key with access to the "gpt-4" model.](https://openai.com/gpt-4)
 
+## Usage
+
+```bash
+  diamond-kg --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] --output <path to the output JSON file>
+```
+
 ## Contributing
 
 Contributions are welcome. Please open an issue or submit a pull request if you would like to contribute.
