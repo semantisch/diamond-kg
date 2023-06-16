@@ -34,4 +34,4 @@ Contributions are welcome. Please open an issue or submit a pull request if you 
 
 ## License
 
-DIAMOND-KG is licensed under the [MIT](https://opensource.org/licenses/MIT)) license.
+DIAMOND-KG is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
