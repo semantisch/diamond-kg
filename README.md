@@ -37,6 +37,8 @@ Make sure the following requirements are fulfilled:
     --output <path to the output JSON file> 
     --apiKey <OpenAI API key with gpt-4 model access> 
     --organization <OpenAI API organization>
+    [--chunkSize <Number of paragraphs per prompt>]
+    [--maxTokens <Max tokens>]
 ```
 
 ## Result datasets
