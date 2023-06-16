@@ -26,13 +26,17 @@ with focus on their medical context and therapeutic intent.
 You can clone this repository to your machine and install the required packages from requirements.txt.
 
 Make sure the following requirements are fulfilled:
-- [You have an OpenAI key with access to the "gpt-4" model.](https://openai.com/gpt-4)
+- [You have an OpenAI key with access to the gpt-4 model.](https://openai.com/gpt-4)
 
 ## Usage
 
 ```bash
-  diamond-kg.py --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] 
-  --output <path to the output JSON file> --apiKey <OpenAI API key with gpt-4 model access> --organization <OpenAI API organization>
+  diamond-kg.py 
+    --input <path to the input JSON file> 
+    --prompt ["triples" | "freeContext" | "definedContext"] 
+    --output <path to the output JSON file> 
+    --apiKey <OpenAI API key with gpt-4 model access> 
+    --organization <OpenAI API organization>
 ```
 
 ## Contributing
