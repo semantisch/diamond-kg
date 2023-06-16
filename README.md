@@ -1,7 +1,7 @@
 ## Badges
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/diamond-kg)]()
 
-# Diamond-KG: A tool for ontology reuse in Wikibase
+# Diamond-KG
 
 A toolbox for constructing Knowledge Graphs from natural language sentences from drug indications
 with focus on their medical context and therapeutic intent.
