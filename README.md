@@ -43,7 +43,7 @@ Make sure the following requirements are fulfilled:
 
 ## Input
 
-For the structure of input, refer to input.json.
+For the structure of input, refer to neurodkg_sentences.json.
 
 ## Result datasets
 
