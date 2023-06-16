@@ -31,7 +31,7 @@ Make sure the following requirements are fulfilled:
 ## Usage
 
 ```bash
-  diamond-kg --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] --output <path to the output JSON file>
+  diamond-kg.py --input <path to the input JSON file> --prompt ["triples" | "freeContext" | "definedContext"] --output <path to the output JSON file>
 ```
 
 ## Contributing
