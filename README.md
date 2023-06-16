@@ -39,6 +39,10 @@ Make sure the following requirements are fulfilled:
     --organization <OpenAI API organization>
 ```
 
+## Result datasets
+
+The example result datasets can be found in the results directory of this repository.
+
 ## Contributing
 
 Contributions are welcome. Please open an issue or submit a pull request if you would like to contribute.
