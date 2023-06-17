@@ -10,7 +10,7 @@ with focus on their medical context and therapeutic intent.
 
 - Extract Chat-GPT-generated triples.
 - Extract medical context (free and defined context types)
-- Identify links to...
+- Identify links with NIH NCATS Translator SRI Name Resolution API
 
 ## Requirements
 
