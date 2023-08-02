@@ -102,14 +102,14 @@ import logging
 import os
 from typing import Optional
 
-import numpy as np
-import requests
-import spacy
-import torch
-from fastapi import APIRouter, Body, HTTPException
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
-from transformers import BertForSequenceClassification, BertTokenizer
+# import numpy as np
+# import requests
+# import spacy
+# import torch
+# from fastapi import APIRouter, Body, HTTPException
+# from fastapi.responses import JSONResponse
+# from pydantic import BaseModel
+# from transformers import BertForSequenceClassification, BertTokenizer
 
 biolink_context = {
     "APO": "http://purl.obolibrary.org/obo/APO_",
@@ -394,6 +394,8 @@ def fetch_data_from_api(search_string, offset, limit):
     :return: A list containing the parsed JSON data from the API.
     """
 
+    print('fetch_data_from_api')
+
     try:
         # API URL
         base_url = "https://name-resolution-sri.renci.org/lookup"
@@ -486,6 +488,9 @@ def save_data_as_json(data, file_name):
         print(f'An error occurred: {e}')
 
 def genJSON(sentences):
+
+    print('genJSON')
+
     if os.path.isfile(f"{args.output}"):
         all = parse_json_from_file(f"{args.output}")
     else:
@@ -503,6 +508,8 @@ def genJSON(sentences):
 
     if len(newSentences) > 0:
         try:
+            print('genJSON: if len(newSentences) > 0')
+
             if not args.prompt:
                 print("No prompt type selected. Refer to the README: https://github.com/semantisch/diamond-kg.")
                 sys.exit()
@@ -547,6 +554,9 @@ Only output the resulting JSON.
             # print(response["choices"][0]["message"]["content"])
             response = response["choices"][0]["message"]["content"]
 
+            print('genJSON: response')
+            print(response)
+
             # Parse the JSON
             data = json.loads(response)
 
@@ -555,7 +565,10 @@ Only output the resulting JSON.
                     if not sentence in all:
                         all[sentence] = []
                         for triple in data[sentence]:
-                            all[sentence].append([{"label" : triple[0], "id" : fetch_data_from_api(triple[0], 0, 5)}, {"label" : triple[1], "id" : fetch_data_from_api(triple[1], 0, 5)}, {"label" : triple[2], "id" : fetch_data_from_api(triple[2], 0, 5)}])
+                            print('genJSON: new triple')
+                            newTriple = [{"label" : triple[0], "id" : fetch_data_from_api(triple[0], 0, 5)}, {"label" : triple[1], "id" : fetch_data_from_api(triple[1], 0, 5)}, {"label" : triple[2], "id" : fetch_data_from_api(triple[2], 0, 5)}]
+                            print(newTriple)
+                            all[sentence].append(newTriple)
                 # sys.exit()
             else:
                 for sentence in data:
@@ -563,7 +576,10 @@ Only output the resulting JSON.
                         contextValues = data[sentence][context]
                         newContextValues = []
                         for contextValue in contextValues:
-                            newContextValues.append({"contextValue" : contextValue, "id" : fetch_data_from_api(contextValue, 0, 5)})
+                            print('genJSON: new context value')
+                            newContextValue = {"contextValue" : contextValue, "id" : fetch_data_from_api(contextValue, 0, 5)}
+                            print(newContextValue)
+                            newContextValues.append(newContextValue )
                         data[sentence][context] = newContextValues
                     newResults[sentence] = data[sentence]
                     if sentence not in all:
@@ -621,14 +637,14 @@ danger_style = Style(color="red", blink=True, bold=True)
 parser=argparse.ArgumentParser()
 parser.add_argument("--input", "-i", help="Input file")
 parser.add_argument("--output", "-o", help="Output file")
-parser.add_argument("--apiKey", "-a", help="OpenAI API organization")
-parser.add_argument("--organization", "-org", help="OpenAI API key")
+parser.add_argument("--apiKey", "-a", help="OpenAI API key")
+parser.add_argument("--organization", "-org", help="OpenAI API organization")
 parser.add_argument("--prompt", "-p", help="Prompt type")
 parser.add_argument("--maxTokens", "-m", help="Maximum tokens")
 parser.add_argument("--chunkSize", "-c", help="Chunk size")
 args=parser.parse_args()
 
-if not args.key or not args.organization:
+if not args.apiKey or not args.organization:
     print("OpenAPI key or organization undefined.")
     sys.exit()
 
@@ -670,7 +686,7 @@ if args.chunkSize:
 for chunk in chunked_list(sentences, chunkSize):
     try:
         counter = counter + 1
-        # print(chunk)
+        print(chunk)
         # sys.exit()
         newResults.append(genJSON(chunk))
     except Exception as e:
