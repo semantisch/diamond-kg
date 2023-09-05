@@ -1,7 +1,7 @@
 ## Badges
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
-<img src="diamond-kg.png" width="500" height="500">
+<img src="diamond-kg.png" width=250 height=250 />
 
 # Diamond-KG
 
